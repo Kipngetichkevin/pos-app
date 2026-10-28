@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+    /* Brand colour. Screens use "blue" utilities, so blue IS the brand: change it here to rebrand everything. */
+    --color-blue-50: var(--color-indigo-50);
+    --color-blue-100: var(--color-indigo-100);
+    --color-blue-200: var(--color-indigo-200);
+    --color-blue-300: var(--color-indigo-300);
+    --color-blue-400: var(--color-indigo-400);
+    --color-blue-500: var(--color-indigo-500);
+    --color-blue-600: var(--color-indigo-600);
+    --color-blue-700: var(--color-indigo-700);
+    --color-blue-800: var(--color-indigo-800);
+    --color-blue-900: var(--color-indigo-900);
+    --color-blue-950: var(--color-indigo-950);
+
+    /* Sidebar */
+    --color-shell: #0f172a;
+    --color-shell-hover: #1e293b;
+}
+
+@layer base {
+    html {
+        font-feature-settings: 'cv11', 'ss01';
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        background: #f4f6fb;
+    }
+
+    /* Forms: one consistent look and a clear focus ring on every screen */
+    input:not([type='checkbox']):not([type='radio']):not([type='hidden']),
+    select,
+    textarea {
+        background-color: #fff;
+        transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    input:not([type='checkbox']):not([type='radio']):focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: var(--color-indigo-500);
+        box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-indigo-500) 18%, transparent);
+    }
+
+    input[type='checkbox'],
+    input[type='radio'] {
+        accent-color: var(--color-indigo-600);
+        width: 1rem;
+        height: 1rem;
+    }
+
+    input:disabled,
+    select:disabled {
+        cursor: not-allowed;
+    }
+
+    button:not(:disabled),
+    [role='button'] {
+        cursor: pointer;
+    }
+
+    button,
+    a {
+        transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s, opacity 0.15s;
+    }
+
+    /* Tables: softer header, row hover */
+    table thead th {
+        font-weight: 600;
+        letter-spacing: 0.03em;
+    }
+
+    table tbody tr:hover {
+        background-color: #f8fafc;
+    }
+
+    /* Numbers line up in columns */
+    td,
+    .tabular {
+        font-variant-numeric: tabular-nums;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 999px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #94a3b8;
+    }
+}
+
+@layer components {
+    /* White cards get a softer, deeper shadow than the default */
+    .shadow-sm.ring-1 {
+        box-shadow: 0 1px 2px rgb(15 23 42 / 0.04), 0 4px 16px -4px rgb(15 23 42 / 0.06);
+    }
+}
